@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "homescreen";
@@ -12,54 +13,60 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController textController = TextEditingController();
+  int _page = 2;
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 58.0, right: 10, left: 10),
-        child: AnimSearchBar(
-          width: 400,
-          textController: textController,
-          rtl:true,
-          onSuffixTap: () {
-            setState(() {
-              textController.clear();
-            });
-          }, 
-          color:Color(0xFF25B386),
-          helpText:'Search Here',
-          closeSearchOnSuffixTap: true,
-          animationDurationInMilli: 1000,
-          style:TextStyle(fontFamily:'Quicksand'),
-          onSubmitted: (String ) {  },
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        extendBody: true,
+        body: Container(
+          padding: const EdgeInsets.only(top: 58.0, right: 10, left: 10),
+          child: AnimSearchBar(
+            width: 400,
+            textController: textController,
+            rtl: true,
+            onSuffixTap: () {
+              setState(() {
+                textController.clear();
+              });
+            },
+            color: Color(0xFF25B386),
+            helpText: 'Search Here',
+            closeSearchOnSuffixTap: true,
+            animationDurationInMilli: 1000,
+            style: TextStyle(fontFamily: 'Quicksand'),
+            onSubmitted: (String) {},
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type:BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF25B386),
-        selectedItemColor:Colors.black,
-        unselectedItemColor:Colors.black,
-        items: const<BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home,color:Colors.black),
-            label:'Home',
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            iconTheme: IconThemeData(color: Colors.black),
           ),
-           BottomNavigationBarItem(
-            icon:Icon(Icons.book,color:Colors.black),
-            label:'Course',
+          child: CurvedNavigationBar(
+            key: _bottomNavigationKey,
+            index: _page,
+            height: 60.0,
+            items: <Widget>[
+              Icon(Icons.home_outlined, size: 25),
+              Icon(Icons.book_outlined, size: 25),
+              Icon(Icons.check_circle_outlined, size: 25),
+              Icon(Icons.person_outlined, size: 25),
+            ],
+            buttonBackgroundColor: Color(0xFF25B386),
+            backgroundColor: Colors.transparent,
+            animationCurve: Curves.easeInOut,
+            animationDuration: Duration(milliseconds: 600),
+            onTap: (index) {
+              setState(() {
+                _page = index;
+              });
+            },
+            letIndexChange: (index) => true,
           ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.person,color:Colors.black),
-            label:'Profile',
-          ),
-        ],
-        unselectedLabelStyle: TextStyle(
-          color:Colors.black,
-          fontFamily:'Quicksand',
-          fontWeight:FontWeight.w900,
         ),
-
       ),
     );
   }
