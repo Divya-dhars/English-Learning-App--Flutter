@@ -24,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
         extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          elevation: 0,
+          elevation: 2,
+          shadowColor: Colors.transparent,
           title: Text('Assess Mentor',
               style: TextStyle(fontFamily: 'Quicksand', color: Colors.black)),
           centerTitle: true,
@@ -60,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 300,
                       child: Card(
                         elevation:10.0,
-                        margin:EdgeInsets.all(20.0),
+                        child:Image.asset('assets/grammar.jpg'),
+                        margin:EdgeInsets.all(10.0),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
                       ),
                     ),
                     Container(
@@ -72,12 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 300,
                       child: Card(
                         elevation:10.0,
-                        margin:EdgeInsets.all(20.0),
+                        child:Image.asset('assets/grammar1.jpg'),
+                        margin:EdgeInsets.all(10.0),
                         color:Color(0xFF25B386),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
                       ),
                     ),
                     Container(
@@ -85,11 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 300,
                       child: Card(
                         elevation:10.0,
-                        margin:EdgeInsets.all(20.0),
+                        child:Image.asset('assets/parts.jpg'),
+                        margin:EdgeInsets.all(10.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
                       ),
                     ),
                   ],
@@ -101,15 +102,15 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             iconTheme: IconThemeData(color: Colors.black),
+            shadowColor: Colors.transparent,
           ),
           child: CurvedNavigationBar(
             key: _bottomNavigationKey,
-            index: _page,
-            height: 60.0,
+            index: 1,
+            height: 75.0,
             items: <Widget>[
-              Icon(Icons.home_outlined, size: 25),
-              Icon(Icons.book_outlined, size: 25),
               Icon(Icons.check_circle_outlined, size: 25),
+              Icon(Icons.book_outlined, size: 25),
               Icon(Icons.person_outlined, size: 25),
             ],
             buttonBackgroundColor: Color(0xFF25B386),
