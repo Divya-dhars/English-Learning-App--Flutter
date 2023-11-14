@@ -22,24 +22,81 @@ class _HomeScreenState extends State<HomeScreen> {
       top: false,
       child: Scaffold(
         extendBody: true,
-        body: Container(
-          padding: const EdgeInsets.only(top: 58.0, right: 10, left: 10),
-          child: AnimSearchBar(
-            width: 400,
-            textController: textController,
-            rtl: true,
-            onSuffixTap: () {
-              setState(() {
-                textController.clear();
-              });
-            },
-            color: Color(0xFF25B386),
-            helpText: 'Search Here',
-            closeSearchOnSuffixTap: true,
-            animationDurationInMilli: 1000,
-            style: TextStyle(fontFamily: 'Quicksand'),
-            onSubmitted: (String) {},
-          ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text('Assess Mentor',
+              style: TextStyle(fontFamily: 'Quicksand', color: Colors.black)),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 8.0, right: 10, left: 10),
+              child: AnimSearchBar(
+                width: 400,
+                textController: textController,
+                rtl: true,
+                onSuffixTap: () {
+                  setState(() {
+                    textController.clear();
+                  });
+                },
+                color: Color(0xFF25B386),
+                helpText: 'Search Here',
+                closeSearchOnSuffixTap: true,
+                animationDurationInMilli: 1000,
+                style: TextStyle(fontFamily: 'Quicksand'),
+                onSubmitted: (String) {},
+              ),
+            ),
+            Container(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 400,
+                      height: 300,
+                      child: Card(
+                        elevation:10.0,
+                        margin:EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
+                      ),
+                    ),
+                    Container(
+                      width: 400,
+                      height: 300,
+                      child: Card(
+                        elevation:10.0,
+                        margin:EdgeInsets.all(20.0),
+                        color:Color(0xFF25B386),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
+                      ),
+                    ),
+                    Container(
+                      width: 400,
+                      height: 300,
+                      child: Card(
+                        elevation:10.0,
+                        margin:EdgeInsets.all(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text('Content',style:TextStyle(fontFamily:'Quicksand')),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
