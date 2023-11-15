@@ -78,6 +78,12 @@ flutter:
     - assets/wel12.jpg
     - assets/wel13.jpg
     - assets/bgimg15.jpg
+    - assets/grammar.jpg
+    - assets/grammar1.jpg
+    - assets/pos.jpg
+    - assets/pos3.jpg
+    - assets/pos4.jpg
+    - assets/pos5.png
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

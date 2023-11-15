@@ -56,40 +56,55 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Container(
+                    ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    topRight: Radius.circular(10.0),
+                    bottomLeft: Radius.circular(8.0),
+                    bottomRight: Radius.circular(8.0),
+                  ),
+                  child:Container(
                       width: 400,
-                      height: 300,
+                      height: 275,
                       child: Card(
-                        elevation:10.0,
-                        child:Image.asset('assets/grammar.jpg'),
-                        margin:EdgeInsets.all(10.0),
+                        elevation: 10.0,
+                        child: Container(
+                          child: Image.asset('assets/grammar.jpg'),
+                        ),
+                        margin: EdgeInsets.only(left:10.0,right:20.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                     ),
+                   ),
                     Container(
                       width: 400,
-                      height: 300,
+                      height: 275,
                       child: Card(
-                        elevation:10.0,
-                        child:Image.asset('assets/grammar1.jpg'),
-                        margin:EdgeInsets.all(10.0),
-                        color:Color(0xFF25B386),
+                        elevation: 10.0,
+                       margin: EdgeInsets.only(left:10.0,right:20.0),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(20.0), // Adjust the border radius as needed
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0), // Use the same border radius here
+                          child: Image.asset('assets/grammar1.jpg',fit:BoxFit.cover),
                         ),
                       ),
                     ),
                     Container(
                       width: 400,
-                      height: 300,
+                      height: 275,
                       child: Card(
-                        elevation:10.0,
-                        child:Image.asset('assets/parts.jpg'),
-                        margin:EdgeInsets.all(10.0),
+                        elevation: 10.0,
+                        margin: EdgeInsets.only(left:10.0,right:20.0),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0), // Use the same border radius here
+                          child: Image.asset('assets/pos4.jpg',fit:BoxFit.cover),
                         ),
                       ),
                     ),
@@ -109,12 +124,11 @@ class _HomeScreenState extends State<HomeScreen> {
             index: 1,
             height: 75.0,
             items: <Widget>[
-              Icon(Icons.check_circle_outlined, size: 25),
-              Icon(Icons.book_outlined, size: 25),
-              Icon(Icons.person_outlined, size: 25),
+              Icon(Icons.check_circle_outlined, size: 25, color: _page == 0 ? Color(0xFF25B386) : Colors.black),
+              Icon(Icons.book_outlined, size: 25, color: _page == 1 ? Color(0xFF25B386) : Colors.black),
+              Icon(Icons.person_outlined, size: 25, color: _page == 2 ? Color(0xFF25B386) : Colors.black),
             ],
-            buttonBackgroundColor: Color(0xFF25B386),
-            backgroundColor: Colors.transparent,
+            backgroundColor: const Color.fromARGB(0, 188, 95, 95),
             animationCurve: Curves.easeInOut,
             animationDuration: Duration(milliseconds: 600),
             onTap: (index) {
