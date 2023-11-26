@@ -13,107 +13,186 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController textController = TextEditingController();
-  int _page = 2;
+  int _page = 1;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       top: false,
       child: Scaffold(
-        extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 2,
           shadowColor: Colors.transparent,
-          title: Text('Assess Mentor',
-              style: TextStyle(fontFamily: 'Quicksand', color: Colors.black)),
+          title: Text(
+            'Assess Mentor',
+            style: TextStyle(fontFamily: 'Quicksand', color: Colors.black),
+          ),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.only(top: 8.0, right: 10, left: 10),
-              child: AnimSearchBar(
-                width: 400,
-                textController: textController,
-                rtl: true,
-                onSuffixTap: () {
-                  setState(() {
-                    textController.clear();
-                  });
-                },
-                color: Color(0xFF25B386),
-                helpText: 'Search Here',
-                closeSearchOnSuffixTap: true,
-                animationDurationInMilli: 1000,
-                style: TextStyle(fontFamily: 'Quicksand'),
-                onSubmitted: (String) {},
-              ),
-            ),
-            Container(
-              child: SingleChildScrollView(
+        body: Padding(
+           padding: const EdgeInsets.only(top: 50.0, right: 10, left: 10),
+              child:SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10.0),
-                    topRight: Radius.circular(10.0),
-                    bottomLeft: Radius.circular(8.0),
-                    bottomRight: Radius.circular(8.0),
-                  ),
-                  child:Container(
-                      width: 400,
-                      height: 275,
+                     SizedBox(width: 16),
+                    Container(
+                      width: screenWidth * 0.9,
+                      height: 270,
+                       margin: EdgeInsets.only(right: 66.0),
                       child: Card(
-                        elevation: 10.0,
-                        child: Container(
-                          child: Image.asset('assets/grammar.jpg'),
-                        ),
-                        margin: EdgeInsets.only(left:10.0,right:20.0),
+                        color: Colors.white,
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/card.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withOpacity(0.3),
+                                      Colors.transparent
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 16,
+                                left: 16,
+                                right: 16,
+                                child: Text(
+                                  'Introduction',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontFamily: 'Quicksand',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                   ),
                     Container(
-                      width: 400,
-                      height: 275,
+                      width: screenWidth * 0.9,
+                      height: 270,
+                       margin: EdgeInsets.only(right: 66.0),
                       child: Card(
-                        elevation: 10.0,
-                       margin: EdgeInsets.only(left:10.0,right:20.0),
+                        color: Colors.white,
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0), // Adjust the border radius as needed
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0), // Use the same border radius here
-                          child: Image.asset('assets/grammar1.jpg',fit:BoxFit.cover),
+                          borderRadius: BorderRadius.circular(20),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/card.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withOpacity(0.3),
+                                      Colors.transparent
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                
+                                bottom: 16,
+                                left: 16,
+                                right: 16,
+                                child: Text(
+                                  'Parts of Speech',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontFamily: 'Quicksand',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                     Container(
-                      width: 400,
-                      height: 275,
+                      width: screenWidth * 0.9,
+                      height: 270,
+                       margin: EdgeInsets.only(right: 66.0),
                       child: Card(
-                        elevation: 10.0,
-                        margin: EdgeInsets.only(left:10.0,right:20.0),
+                        color: Colors.white,
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0), // Use the same border radius here
-                          child: Image.asset('assets/pos4.jpg',fit:BoxFit.cover),
+                          borderRadius: BorderRadius.circular(20),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/card.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                              
+                              Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withOpacity(0.3),
+                                      Colors.transparent
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 16,
+                                left: 16,
+                                right: 16,
+                                child: Text(
+                                  'Grammar',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontFamily: 'Quicksand',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-            )
-          ],
         ),
+
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             iconTheme: IconThemeData(color: Colors.black),
@@ -124,9 +203,9 @@ class _HomeScreenState extends State<HomeScreen> {
             index: 1,
             height: 75.0,
             items: <Widget>[
-              Icon(Icons.check_circle_outlined, size: 25, color: _page == 0 ? Color(0xFF25B386) : Colors.black),
-              Icon(Icons.book_outlined, size: 25, color: _page == 1 ? Color(0xFF25B386) : Colors.black),
-              Icon(Icons.person_outlined, size: 25, color: _page == 2 ? Color(0xFF25B386) : Colors.black),
+              buildNavItem(Icons.check_circle_outlined, 0),
+              buildNavItem(Icons.book_outlined,1),   
+              buildNavItem(Icons.person_outlined,2),     
             ],
             backgroundColor: const Color.fromARGB(0, 188, 95, 95),
             animationCurve: Curves.easeInOut,
@@ -136,8 +215,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 _page = index;
               });
             },
-            letIndexChange: (index) => true,
           ),
+        ),
+      ),
+    );
+  }
+   Widget buildNavItem(IconData icon, int pageIndex) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _page = pageIndex;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _page == pageIndex ? Colors.teal.withOpacity(0.2) : Colors.transparent,
+        ),
+        child: AnimatedIcon(
+          icon: AnimatedIcons.menu_close,
+          progress: _page == pageIndex
+              ? AlwaysStoppedAnimation(1.0)
+              : AlwaysStoppedAnimation(0.0),
+          size: 30,
+          color: _page == pageIndex ? Colors.teal : Colors.black,
         ),
       ),
     );

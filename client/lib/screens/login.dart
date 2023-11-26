@@ -59,15 +59,15 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/bgimg15.jpg'),
+            image: AssetImage('assets/wel7.jpg'),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(5.0),
             child: Card(
-              color: Colors.teal.withOpacity(0.1),
+              color: Colors.white.withOpacity(0.3),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),

@@ -81,9 +81,10 @@ flutter:
     - assets/grammar.jpg
     - assets/grammar1.jpg
     - assets/pos.jpg
-    - assets/pos3.jpg
-    - assets/pos4.jpg
-    - assets/pos5.png
+    - assets/10.jpg
+    - assets/11.jpg
+    - assets/12.jpg
+    - assets/card.jpg
    
 
   # An image asset can refer to one or more resolution-specific "variants", see
