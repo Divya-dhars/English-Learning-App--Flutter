@@ -194,8 +194,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          //selectedItemColor: Colors.black,
-          //unselectedItemColor: Colors.black,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.black,
           showUnselectedLabels: false,
           onTap: (index) {
             setState(() {
@@ -205,15 +205,15 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: myIndex,
           items: [
             BottomNavigationBarItem(
-              icon: GradientIcon(Icons.explore, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              icon: Icon(Icons.explore, color:Colors.black),//[Color(0xFF4CA9DF), Color(0xFF292E91)]),
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: GradientIcon(Icons.library_books, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              icon: Icon(Icons.library_books, color:Colors.black), //[Color(0xFF4CA9DF), Color(0xFF292E91)]),
               label: 'Progress',
             ),
             BottomNavigationBarItem(
-              icon: GradientIcon(Icons.person, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              icon: Icon(Icons.person,color:Colors.black), //[Color(0xFF4CA9DF), Color(0xFF292E91)]),
               label: 'Profile',
             ),
           ],
