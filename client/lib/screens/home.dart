@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:anim_search_bar/anim_search_bar.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "homescreen";
@@ -13,8 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController textController = TextEditingController();
-  int _page = 1;
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  int myIndex = 0;
+  List<Widget> widgetList = const [
+    Text('Explore', style: TextStyle(fontSize: 40, color: Colors.black)),
+    Text('Progress', style: TextStyle(fontSize: 40, color: Colors.black)),
+    Text('Profile', style: TextStyle(fontSize: 40, color: Colors.black)),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,215 +35,241 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: true,
         ),
         body: Padding(
-           padding: const EdgeInsets.only(top: 50.0, right: 10, left: 10),
-              child:SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                     SizedBox(width: 16),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: 270,
-                       margin: EdgeInsets.only(right: 66.0),
-                      child: Card(
-                        color: Colors.white,
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Stack(
-                            children: [
-                              Image.asset(
-                                'assets/card.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.white.withOpacity(0.3),
-                                      Colors.transparent
-                                    ],
-                                    begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 16,
-                                left: 16,
-                                right: 16,
-                                child: Text(
-                                  'Introduction',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontFamily: 'Quicksand',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+          padding: const EdgeInsets.only(top: 50.0, right: 10, left: 10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SizedBox(width: 16),
+                Container(
+                  width: screenWidth * 0.9,
+                  height: 270,
+                  margin: EdgeInsets.only(right: 66.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/card.jpg',
+                            fit: BoxFit.cover,
                           ),
-                        ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.white.withOpacity(0.3),
+                                  Colors.transparent
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 16,
+                            left: 16,
+                            right: 16,
+                            child: Text(
+                              'Introduction',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: 270,
-                       margin: EdgeInsets.only(right: 66.0),
-                      child: Card(
-                        color: Colors.white,
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Stack(
-                            children: [
-                              Image.asset(
-                                'assets/card.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.white.withOpacity(0.3),
-                                      Colors.transparent
-                                    ],
-                                    begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                
-                                bottom: 16,
-                                left: 16,
-                                right: 16,
-                                child: Text(
-                                  'Parts of Speech',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontFamily: 'Quicksand',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: screenWidth * 0.9,
-                      height: 270,
-                       margin: EdgeInsets.only(right: 66.0),
-                      child: Card(
-                        color: Colors.white,
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Stack(
-                            children: [
-                              Image.asset(
-                                'assets/card.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.white.withOpacity(0.3),
-                                      Colors.transparent
-                                    ],
-                                    begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 16,
-                                left: 16,
-                                right: 16,
-                                child: Text(
-                                  'Grammar',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontFamily: 'Quicksand',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-        ),
-
-        bottomNavigationBar: Theme(
-          data: Theme.of(context).copyWith(
-            iconTheme: IconThemeData(color: Colors.black),
-            shadowColor: Colors.transparent,
+                Container(
+                  width: screenWidth * 0.9,
+                  height: 270,
+                  margin: EdgeInsets.only(right: 66.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/card.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.white.withOpacity(0.3),
+                                  Colors.transparent
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 16,
+                            left: 16,
+                            right: 16,
+                            child: Text(
+                              'Parts of Speech',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: screenWidth * 0.9,
+                  height: 270,
+                  margin: EdgeInsets.only(right: 66.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/card.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.white.withOpacity(0.3),
+                                  Colors.transparent
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 16,
+                            left: 16,
+                            right: 16,
+                            child: Text(
+                              'Grammar',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Quicksand',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          child: CurvedNavigationBar(
-            key: _bottomNavigationKey,
-            index: 1,
-            height: 75.0,
-            items: <Widget>[
-              buildNavItem(Icons.check_circle_outlined, 0),
-              buildNavItem(Icons.book_outlined,1),   
-              buildNavItem(Icons.person_outlined,2),     
-            ],
-            backgroundColor: const Color.fromARGB(0, 188, 95, 95),
-            animationCurve: Curves.easeInOut,
-            animationDuration: Duration(milliseconds: 600),
-            onTap: (index) {
-              setState(() {
-                _page = index;
-              });
-            },
-          ),
         ),
-      ),
-    );
-  }
-   Widget buildNavItem(IconData icon, int pageIndex) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _page = pageIndex;
-        });
-      },
-      child: Container(
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: _page == pageIndex ? Colors.teal.withOpacity(0.2) : Colors.transparent,
-        ),
-        child: AnimatedIcon(
-          icon: AnimatedIcons.menu_close,
-          progress: _page == pageIndex
-              ? AlwaysStoppedAnimation(1.0)
-              : AlwaysStoppedAnimation(0.0),
-          size: 30,
-          color: _page == pageIndex ? Colors.teal : Colors.black,
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          //selectedItemColor: Colors.black,
+          //unselectedItemColor: Colors.black,
+          showUnselectedLabels: false,
+          onTap: (index) {
+            setState(() {
+              myIndex = index;
+            });
+          },
+          currentIndex: myIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: GradientIcon(Icons.explore, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: GradientIcon(Icons.library_books, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              label: 'Progress',
+            ),
+            BottomNavigationBarItem(
+              icon: GradientIcon(Icons.person, [Color(0xFF4CA9DF), Color(0xFF292E91)]),
+              label: 'Profile',
+            ),
+          ],
+          selectedLabelStyle: TextStyle(fontFamily: 'Quicksand', fontWeight: FontWeight.bold,color:Colors.black),
+          unselectedLabelStyle: TextStyle(fontFamily: 'Quicksand', fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
     );
   }
 }
+
+class GradientIcon extends StatelessWidget {
+  final IconData icon;
+  final List<Color> gradientColors;
+
+  GradientIcon(this.icon, this.gradientColors);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return LinearGradient(
+          colors: gradientColors,
+        ).createShader(bounds);
+      },
+      child: Icon(
+        icon,
+        color: Colors.white,
+      ),
+    );
+  }
+}
+
+/*class GradientLabel extends StatelessWidget {
+  final String label;
+  final List<Color> gradientColors;
+
+  GradientLabel(this.label, this.gradientColors);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return LinearGradient(
+          colors: gradientColors,
+          stops: [0.0, 1.0],
+        ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height));
+      },
+      child: Text(
+        label,
+        style: TextStyle(
+          fontFamily: 'Quicksand',
+          fontWeight: FontWeight.bold,
+          fontSize: 14,
+        ),
+      ),
+    );
+  }
+}*/
